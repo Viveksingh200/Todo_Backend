@@ -7,6 +7,7 @@ import TodoRoute from "./routes/todoRoutes.js"
 const app = express();
 dotenv.config();
 connectDB();
+const PORT = process.env.PORT; 
 
 app.get("/" , (req, res) => {
     res.send("server is running");
@@ -19,6 +20,6 @@ app.use(json());
 //routes
 app.use("/api/todos", TodoRoute);
 
-app.listen(5000, () => {
-    console.log("port 5000")
+app.listen(PORT, () => {
+    console.log(`app is listening at port ${PORT}`)
 })
